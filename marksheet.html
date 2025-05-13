@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Sheet Generator</title>
+    <link rel="stylesheet" href="mark.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mark Sheet Generator</h1>
+        
+        <div class="input-section">
+            <div class="form-group">
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" id="rollNumber" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="course">Select Course:</label>
+                <select id="course" required>
+                    <option value="">-- Select Course --</option>
+                    <option value="bsc">B.Sc Computer Science</option>
+                    <option value="bca">BCA</option>
+                    <option value="btech">B.Tech Computer Science</option>
+                    <option value="mba">MBA</option>
+                    <option value="ba">mca</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="semester">Semester:</label>
+                <select id="semester" required>
+                    <option value="">-- Select Semester --</option>
+                    <option value="1">1st Semester</option>
+                    <option value="2">2nd Semester</option>
+                    <option value="3">3rd Semester</option>
+                    <option value="4">4th Semester</option>
+                    <option value="5">5th Semester</option>
+                    <option value="6">6th Semester</option>
+                </select>
+            </div>
+            
+            <div id="subjectInputs">
+                <!-- Subjects will be added here dynamically based on course -->
+            </div>
+            
+            <button id="generateBtn">Generate Mark Sheet</button>
+        </div>
+        
+        <div id="marksheet" class="marksheet-container hidden">
+            <div class="marksheet-header">
+                <h2 id="universityName">UNIVERSITY OF HARE</h2>
+                <h3 id="courseTitle">B.Sc Computer Science - Semester 1</h3>
+                <div class="student-info">
+                    <p><strong>Name:</strong> <span id="displayName">John Doe</span></p>
+                    <p><strong>Roll No:</strong> <span id="displayRoll">12345</span></p>
+                </div>
+            </div>
+            
+            <table class="marks-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Max Marks</th>
+                        <th>Marks Obtained</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="marksTableBody">
+                    <!-- Marks will be added here dynamically -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th id="totalMaxMarks">500</th>
+                        <th id="totalObtainedMarks">400</th>
+                        <th id="overallGrade">A</th>
+                    </tr>
+                    <tr>
+                        <th colspan="4" id="divisionResult">Division: First Class with Distinction</th>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="remarks">
+                <p><strong>Remarks:</strong> <span id="remarksText">Excellent Performance</span></p>
+            </div>
+            
+            <button id="printBtn">Print Mark Sheet</button>
+            <button id="newBtn">Create New</button>
+        </div>
+    </div>
+    
+    <script src="marksheet.js"></script>
+</body>
+</html>

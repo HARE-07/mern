@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ID Card Generater</title>
+  <style>
+    body {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background: #071d2d;
+    }
+    .form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+      font-weight: bold;
+      border: 2px solid black;
+    }
+    .h1{
+        text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 95%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #004999;
+    }
+    .id-card {
+      background: #fff;
+      border: 3px solid #000000;
+      border-radius: 15px;
+      width: 300px;
+      height: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      display: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 10px;
+    }
+    .id-card .logo {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+    .id-card .photo {
+      width: 100px;
+      height: 120px;
+      border: 2px solid #004999;
+    }
+    .info {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: left;
+    }
+    .info p {
+      margin: 2px 0;
+      font-size: 16px;
+    }
+    .info p strong {
+      width: 150px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2 class="h1">Student ID Form</h2>
+  <form id="idForm">
+   
+
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Course:</label>
+    <input type="text" id="course" required>
+
+    <label>Admission No:</label>
+    <input type="text" id="admission" required>
+
+    <label>Date of Birth:</label>
+    <input type="date" id="dob" required>
+
+    <label>Blood Group:</label>
+    <input type="text" id="blood" required>
+
+    <label>Valid Till:</label>
+    <input type="date" id="valid" required>
+
+    <label>Student Image:</label>
+    <input type="file" id="photoInput" accept="image/*" required>
+
+    <button type="submit">Generate ID Card</button>
+  </form>
+</div>
+
+<div class="id-card" id="idCard">
+  <img src="images.jpeg" alt="College Logo" class="logo">
+  <img id="cardPhoto" class="photo" alt="Student Photo">
+  <div class="info">
+    <p><strong>Name:</strong> <span id="cardName"></span></p>
+    <p><strong>Course:</strong> <span id="cardCourse"></span></p>
+    <p><strong>Admission No:</strong> <span id="cardAdmission"></span></p>
+    <p><strong>DOB:</strong> <span id="cardDOB"></span></p>
+    <p><strong>Blood Group:</strong> <span id="cardBlood"></span></p>
+    <p><strong>Valid Till:</strong> <span id="cardValid"></span></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById("idForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const course = document.getElementById('course').value;
+    const admission = document.getElementById('admission').value;
+    const dob = document.getElementById('dob').value;
+    const blood = document.getElementById('blood').value;
+    const valid = document.getElementById('valid').value;
+    const photoInput = document.getElementById('photoInput').files[0];
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const imageData = e.target.result;
+      document.getElementById('cardPhoto').src = imageData;
+    };
+    reader.readAsDataURL(photoInput);
+
+    document.getElementById('cardName').textContent = name;
+    document.getElementById('cardCourse').textContent = course;
+    document.getElementById('cardAdmission').textContent = admission;
+    document.getElementById('cardDOB').textContent = dob;
+    document.getElementById('cardBlood').textContent = blood;
+    document.getElementById('cardValid').textContent = valid;
+
+    document.getElementById('idCard').style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>

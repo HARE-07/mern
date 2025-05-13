@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Hover Color</title>
+  <style>
+    body {
+      background-color: #eee;
+      text-align: center;
+      padding-top:150px
+    }
+    .image-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+    }
+
+    .img1 {
+      width:50%;
+      height:500px;
+      filter: grayscale(100%); /* Black and white */
+      transition: filter 0.5s ease;
+      border-radius: 12px;
+      margin-right: 10px;
+    }
+
+    .img1:hover {
+      filter: grayscale(0%); /* Full color on hover */
+    }
+    .img2 {
+      width:50%;
+      height:500px;
+      transition: 0.5s ease;
+      border-radius: 12px;
+    }
+
+    .img2:hover {
+      filter: grayscale(100%); /* Full color on hover */
+    }
+  </style>
+</head>
+<body>
+<H1>Image Hover Color</H1>
+  <div class="image-container">
+    <img class="img1" src="download.jpeg" alt="Hover Image">
+    <img class="img2" src="download.jpeg" alt="Hover Image">
+  </div>
+
+</body>
+</html>

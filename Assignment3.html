@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet Generator</title>
+    <link rel="stylesheet" href="Assignment3.css">
+</head>
+<body>
+
+    <h2>Student Details</h2>
+    <div id="details-form">
+        <label>Name:</label>
+        <input type="text" id="name">
+        
+        <label>Roll Number:</label>
+        <input type="text" id="roll">
+        
+        <button onclick="showMarksheet()">Next</button>
+    </div>
+
+    <div id="marksheet" style="display: none;">
+        <h2>Marksheet</h2>
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Marks Obtained</th>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td><input type="number" id="math"></td>
+            </tr>
+            <tr>
+                <td>Science</td>
+                <td><input type="number" id="science"></td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td><input type="number" id="english"></td>
+            </tr>
+        </table>
+
+        <button onclick="generateResult()">Generate Marksheet</button>
+
+        <h3>Name: <span id="student-name"></span></h3>
+        <h3>Roll Number: <span id="student-roll"></span></h3>
+        <h3>Total Marks: <span id="total">0</span></h3>
+        <h3>Percentage: <span id="percentage">0%</span></h3>
+    </div>
+
+    <script src="Assignment3.js"></script>
+
+</body>
+</html>
